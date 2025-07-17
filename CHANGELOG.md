@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.4](https://github.com/couckedev/mapper-registry-node/compare/v1.0.3...v1.0.4) (2025-07-17)
+
+
+### Bug Fixes
+
+* set public access option to npm publication command ([4c8b51a](https://github.com/couckedev/mapper-registry-node/commit/4c8b51a82c20338d881c7897a49736b1aeda6e45))
+
 ## [1.0.3](https://github.com/couckedev/mapper-registry-node/compare/v1.0.2...v1.0.3) (2025-07-17)
 
 
