@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.3](https://github.com/couckedev/mapper-registry-node/compare/v1.0.2...v1.0.3) (2025-07-17)
+
+
+### Bug Fixes
+
+* npm publication workflow is never triggered ([4ee5139](https://github.com/couckedev/mapper-registry-node/commit/4ee5139bbbbe45ca86949cbaa687cef3a04c9e2b))
+
 ## [1.0.2](https://github.com/couckedev/mapper-registry-node/compare/v1.0.1...v1.0.2) (2025-07-17)
 
 
