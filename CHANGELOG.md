@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.1](https://github.com/couckedev/mapper-registry-node/compare/v1.0.0...v1.0.1) (2025-07-17)
+
+
+### Bug Fixes
+
+* add .md files into prettierignore file ([04826fc](https://github.com/couckedev/mapper-registry-node/commit/04826fc9322414fbcc062adc37f1fe9254f214e1))
+
 ## 1.0.0 (2025-07-17)
 
 
