@@ -1,4 +1,4 @@
-import { MapperNotFoundError } from '../src/mapper-not-found.error';
+import { MapperNotFoundError } from '../src/errors/mapper-not-found.error';
 import { MapperRegistry } from '../src/index';
 import { StubMapper } from './stubs/stub.mapper';
 

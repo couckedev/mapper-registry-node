@@ -15,9 +15,13 @@
     "type-check": "tsc --noEmit",
     "check-all": "npm run type-check && npm run lint && npm run format:check"
   },
+  "files": [
+    "dist/**/*"
+  ],
   "devDependencies": {
     "@eslint/js": "^9.31.0",
     "@types/jest": "^30.0.0",
+    "@types/reflect-metadata": "^0.0.5",
     "@typescript-eslint/eslint-plugin": "^8.37.0",
     "@typescript-eslint/parser": "^8.37.0",
     "eslint": "^9.31.0",
@@ -26,6 +30,7 @@
     "eslint-plugin-unicorn": "^59.0.1",
     "jest": "^30.0.4",
     "prettier": "^3.6.2",
+    "reflect-metadata": "^0.2.2",
     "ts-jest": "^29.4.0",
     "typescript": "^5.8.3"
   }

@@ -1,4 +1,4 @@
-import { MethodNotFoundError } from '../src/method-not-found.error';
+import { MethodNotFoundError } from '../src/errors/method-not-found.error';
 import { Foo } from './stubs/foo';
 import { fromBarMock, StubMapper, toBarMock } from './stubs/stub.mapper';
 

@@ -1,0 +1,67 @@
+import { Direction } from './direction.type';
+import { MethodNotFoundError } from './errors/method-not-found.error';
+import { UndefinedSourceType } from './errors/undefined-source-type.error';
+import { FROM_TYPE_TOKEN } from './tokens/from-type.token';
+import { SOURCE_TYPE_TOKEN } from './tokens/source-type.token';
+import { TO_TYPE_TOKEN } from './tokens/to-type.token';
+
+export abstract class Mapper<TSource> {
+  private _sourceType: string = '';
+
+  constructor() {
+    this.resolveSourceType();
+    this.initMapper();
+  }
+
+  private getMethodForTypeAndDirection(type: string, direction: Direction) {
+    const prototype = Object.getPrototypeOf(this) as Record<string, unknown>;
+    const methods = Object.getOwnPropertyNames(prototype)
+      .find((name: string) => {
+        let metadata_key_token: string = direction === 'from' ? FROM_TYPE_TOKEN : TO_TYPE_TOKEN;
+        let hasRelatedMetadata = Reflect.getMetadata(metadata_key_token, prototype[name]) !== undefined;
+        return hasRelatedMetadata;
+      })
+      .map((methodName: string) => Object.(prototype, methodName));
+    methods.forEach(methodName => {
+      const method = this[methodName] as Function;
+      if (Reflect.getMetadata(TO_TYPE_TOKEN)) {
+      }
+    });
+  }
+
+  private registerTo(toMethodName: string) {}
+
+  private readonly toMap = new Map<string, (input: unknown) => unknown>();
+  private readonly fromMap = new Map<string, (input: unknown) => unknown>();
+  abstract initMapper(): void;
+
+  private resolveSourceType() {
+    const sourceType = Reflect.getMetadata(SOURCE_TYPE_TOKEN, this) as string;
+
+    if (sourceType.length < 1 || sourceType === undefined) {
+      throw new UndefinedSourceType();
+    }
+
+    this._sourceType = sourceType;
+  }
+
+  getSourceType(): string {
+    return this._sourceType;
+  }
+
+  mapTo(toType: string, input: TSource): unknown {
+    const fn = this.toMap.get(toType);
+    if (!fn) {
+      throw new MethodNotFoundError(this.getSourceType(), toType);
+    }
+    return fn(input);
+  }
+
+  mapFrom(fromType: string, input: unknown): TSource {
+    const fn = this.fromMap.get(fromType) as (input: unknown) => TSource;
+    if (!fn) {
+      throw new MethodNotFoundError(fromType, this.getSourceType());
+    }
+    return fn(input);
+  }
+}
