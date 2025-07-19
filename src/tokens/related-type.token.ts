@@ -1,0 +1,1 @@
+export const RELATED_TYPE_TOKEN = 'RELATED_TYPE';

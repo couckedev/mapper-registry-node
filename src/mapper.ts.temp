@@ -1,0 +1,51 @@
+import { FunctionNotFoundError } from './errors/method-not-found.error';
+import { UndefinedRelatedType } from './errors/undefined-source-type.error';
+import { SOURCE_TYPE_TOKEN } from './tokens/source-type.token';
+import { Direction } from './types/direction.type';
+
+export abstract class Mapper<RelatedType> {
+  private _relatedType: string = '';
+
+  constructor() {
+    this.resolveRelatedType();
+    this.initMapper();
+  }
+
+  private getMethodForTypeAndDirection(type: string, direction: Direction) {}
+
+  private registerTo(toMethodName: string) {}
+
+  private readonly toMap = new Map<string, (input: unknown) => unknown>();
+  private readonly fromMap = new Map<string, (input: unknown) => unknown>();
+  abstract initMapper(): void;
+
+  private resolveRelatedType() {
+    const relatedType = Reflect.getMetadata(SOURCE_TYPE_TOKEN, this) as string;
+
+    if (relatedType.length < 1 || relatedType === undefined) {
+      throw new UndefinedRelatedType();
+    }
+
+    this._relatedType = relatedType;
+  }
+
+  getRelatedType(): string {
+    return this._relatedType;
+  }
+
+  mapTo(toType: string, input: RelatedType): unknown {
+    const fn = this.toMap.get(toType);
+    if (!fn) {
+      throw new FunctionNotFoundError(this.getRelatedType(), toType);
+    }
+    return fn(input);
+  }
+
+  mapFrom(fromType: string, input: unknown): RelatedType {
+    const fn = this.fromMap.get(fromType) as (input: unknown) => RelatedType;
+    if (!fn) {
+      throw new FunctionNotFoundError(fromType, this.getRelatedType());
+    }
+    return fn(input);
+  }
+}
