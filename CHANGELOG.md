@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.2](https://github.com/couckedev/mapper-registry-node/compare/v1.1.1...v1.1.2) (2025-07-26)
+
+
+### Bug Fixes
+
+* fixing build issues ([e5316cc](https://github.com/couckedev/mapper-registry-node/commit/e5316cc633d6cd53cebbc576951f2a00db47a67c))
+
 ## [1.1.1](https://github.com/couckedev/mapper-registry-node/compare/v1.1.0...v1.1.1) (2025-07-26)
 
 
