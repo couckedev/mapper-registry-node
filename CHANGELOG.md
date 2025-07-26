@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0](https://github.com/couckedev/mapper-registry-node/compare/v1.0.4...v1.1.0) (2025-07-26)
+
+
+### Features
+
+* map function registry approach ([e84d2c3](https://github.com/couckedev/mapper-registry-node/commit/e84d2c3c4d350ea6be231c05c4129030c43e8ee9))
+
 ## [1.0.4](https://github.com/couckedev/mapper-registry-node/compare/v1.0.3...v1.0.4) (2025-07-17)
 
 
