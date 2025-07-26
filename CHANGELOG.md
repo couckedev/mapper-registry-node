@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.1.1](https://github.com/couckedev/mapper-registry-node/compare/v1.1.0...v1.1.1) (2025-07-26)
+
+
+### Bug Fixes
+
+* lint fails on package.json ([#15](https://github.com/couckedev/mapper-registry-node/issues/15)) ([9563749](https://github.com/couckedev/mapper-registry-node/commit/9563749367946fc0be486d2825a3257026de53cf))
+* missing export seciton on package.json ([701e1b5](https://github.com/couckedev/mapper-registry-node/commit/701e1b51efbf2d2aed602f028bf04d96b64da1c7))
+
 ## [1.1.0](https://github.com/couckedev/mapper-registry-node/compare/v1.0.4...v1.1.0) (2025-07-26)
 
 
