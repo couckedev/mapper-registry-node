@@ -1,10 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import {
-  EmptySourceTypeError,
-  EmptyTargetTypeError,
-  MapperAlreadyExistsError,
-  MapperNotFoundError,
-} from './index';
+import { EmptySourceTypeError } from './errors/empty-source-type.error';
+import { EmptyTargetTypeError } from './errors/empty-target-type.error';
+import { MapperAlreadyExistsError } from './errors/mapper-already-exists.error';
+import { MapperNotFoundError } from './errors/mapper-not-found.error';
 import type { MapperRegistryItem } from './types/mapper-registry-item.type';
 
 export class MapperRegistry {
