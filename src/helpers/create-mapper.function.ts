@@ -1,8 +1,6 @@
-import {
-  EmptySourceTypeError,
-  EmptyTargetTypeError,
-  MapFunction,
-} from '../index';
+import { EmptySourceTypeError } from '../errors/empty-source-type.error';
+import { EmptyTargetTypeError } from '../errors/empty-target-type.error';
+import { MapFunction } from '../types/map-function.type';
 import { MapperRegistryItem } from '../types/mapper-registry-item.type';
 
 /**
