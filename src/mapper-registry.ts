@@ -29,10 +29,11 @@ export class MapperRegistry {
     );
   }
 
-  static createWithMappers(
+  static createWithMappers<T extends MapperRegistry>(
+    this: new () => T,
     mappers: MapperRegistryItem<any, any>[]
-  ): MapperRegistry {
-    const instance = new MapperRegistry();
+  ): T {
+    const instance = new this();
     mappers.map(mapper => instance.register(mapper));
     return instance;
   }
