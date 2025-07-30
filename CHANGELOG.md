@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.3](https://github.com/couckedev/mapper-registry-node/compare/v1.1.2...v1.1.3) (2025-07-30)
+
+
+### Bug Fixes
+
+* allow inheritance of MapperRegistry with factory method ([c0e37aa](https://github.com/couckedev/mapper-registry-node/commit/c0e37aa3875f5c8effd5135f457dd0a336943f61))
+
 ## [1.1.2](https://github.com/couckedev/mapper-registry-node/compare/v1.1.1...v1.1.2) (2025-07-26)
 
 
