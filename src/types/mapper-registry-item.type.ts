@@ -1,4 +1,4 @@
-import { MapFunction } from './map-function.type';
+import type { MapFunction } from './map-function.type.js';
 
 export type MapperRegistryItem<TFrom, TTo> = {
   from: string;
