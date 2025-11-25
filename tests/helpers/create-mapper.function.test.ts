@@ -1,3 +1,4 @@
+import { describe, it, expect, vi } from 'vitest';
 import {
   createMapper,
   EmptySourceTypeError,
@@ -11,7 +12,7 @@ describe('createMapper', () => {
     //GIVEN empty source type, target type and map function
     const from = '';
     const to = 'Bar';
-    const mapFunction = jest.fn();
+    const mapFunction = vi.fn();
     //WHEN createMapper is called with source type, target type and map function
     const mapperCreation = () => createMapper(from, to, mapFunction);
     //THEN it should throw EmptySourceTypeError
@@ -21,7 +22,7 @@ describe('createMapper', () => {
     //GIVEN source type, empty target type and map function
     const from = 'Foo';
     const to = '';
-    const mapFunction = jest.fn();
+    const mapFunction = vi.fn();
     //WHEN createMapper is called with source type, target type and map function
     const mapperCreation = () => createMapper(from, to, mapFunction);
     //THEN it should throw EmptyTargetTypeError
@@ -31,7 +32,7 @@ describe('createMapper', () => {
     //GIVEN source type, target type, and map function
     const from = 'Foo';
     const to = 'Bar';
-    const mapFunction = jest.fn();
+    const mapFunction = vi.fn();
     const expectedMapperRegistryItem = {
       from,
       to,
