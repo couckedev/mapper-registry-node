@@ -1,3 +1,4 @@
+import { describe, it, expect, vi } from 'vitest';
 import {
   createMapper,
   EmptySourceTypeError,
@@ -47,7 +48,7 @@ describe('MapperRegistry', () => {
       //GIVE source type, target type, mapper to register and registry already containing this mapper
       const from = 'Foo';
       const to = 'Bar';
-      const mapperToRegister = createMapper<Foo, Bar>(from, to, jest.fn());
+      const mapperToRegister = createMapper<Foo, Bar>(from, to, vi.fn());
       const mapperRegistry = MapperRegistry.createWithMappers([
         mapperToRegister,
       ]);
@@ -63,7 +64,7 @@ describe('MapperRegistry', () => {
       //GIVEN source type, target type and mapper to register and registry
       const from = 'Foo';
       const to = 'Bar';
-      const mapperToRegister = createMapper<Foo, Bar>(from, to, jest.fn());
+      const mapperToRegister = createMapper<Foo, Bar>(from, to, vi.fn());
       const mapperRegistry = new MapperRegistry();
       //WHEN register is called with mapper to register
       mapperRegistry.register(mapperToRegister);
@@ -79,7 +80,7 @@ describe('MapperRegistry', () => {
       //GIVEN source type, target type and mapper to register
       const from = 'Foo';
       const to = 'Bar';
-      const mapperToRegister = createMapper<Foo, Bar>(from, to, jest.fn());
+      const mapperToRegister = createMapper<Foo, Bar>(from, to, vi.fn());
       //WHEN createWithMappers is called
       const mapperRegistry = MapperRegistry.createWithMappers([
         mapperToRegister,
@@ -97,7 +98,7 @@ describe('MapperRegistry', () => {
       //GIVEN source type, target type and mapper registry with registered mapper for source type and target type
       const from = 'Foo';
       const to = 'Bar';
-      const registeredMapper = createMapper<Foo, Bar>(from, to, jest.fn());
+      const registeredMapper = createMapper<Foo, Bar>(from, to, vi.fn());
       const mapperRegistry = MapperRegistry.createWithMappers([
         registeredMapper,
       ]);
@@ -128,7 +129,7 @@ describe('MapperRegistry', () => {
         propB: 'propB',
       };
       const mapperRegistry = new MapperRegistry();
-      const getMapperWithSpy = jest
+      const getMapperWithSpy = vi
         .spyOn(mapperRegistry, 'getMapperWith')
         .mockReturnValue(undefined);
       //WHEN maps is called with source type and target type
@@ -145,14 +146,14 @@ describe('MapperRegistry', () => {
         propA: 'propA',
         propB: 'propB',
       };
-      const mapFunctionMock = jest.fn();
+      const mapFunctionMock = vi.fn();
       const registeredMapper: MapperRegistryItem<unknown, Bar> = {
         from,
         to,
         function: mapFunctionMock,
       };
       const mapperRegistry = new MapperRegistry();
-      const getMapperWithSpy = jest
+      const getMapperWithSpy = vi
         .spyOn(mapperRegistry, 'getMapperWith')
         .mockReturnValue(registeredMapper);
       //WHEN maps is called with source type and target type
@@ -162,14 +163,4 @@ describe('MapperRegistry', () => {
       expect(mapFunctionMock).toHaveBeenCalledWith(object);
     });
   });
-  /*
-
-  maps<TFrom, TTo>(from: string, to: string, object: TFrom): TTo {
-    const mapper = this.getMapperWith<TFrom, TTo>(from, to);
-    if (!mapper) {
-      throw new MapperNotFoundError(from, to);
-    }
-    return mapper.function(object);
-  }
-  */
 });

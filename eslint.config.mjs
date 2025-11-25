@@ -102,6 +102,7 @@ export default [
       '*.config.js',
       '*.config.ts',
       '*.md',
+      'pnpm-lock.yaml',
     ],
   },
 
