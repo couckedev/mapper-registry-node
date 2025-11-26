@@ -24,6 +24,7 @@
     "CHANGELOG.md"
   ],
   "sideEffects": false,
+  "packageManager": "pnpm@10.11.0",
   "engines": {
     "node": ">=18.0.0"
   },
@@ -38,8 +39,8 @@
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "type-check": "tsc --noEmit -p tsconfig.json",
-    "check-all": "npm run type-check && npm run lint && npm run format:check",
-    "prepublishOnly": "npm run build"
+    "check-all": "pnpm run type-check && pnpm run lint && pnpm run format:check",
+    "prepublishOnly": "pnpm run build"
   },
   "keywords": [
     "mapper",
