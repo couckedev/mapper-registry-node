@@ -1,7 +1,7 @@
-import { EmptySourceTypeError } from '../errors/empty-source-type.error';
-import { EmptyTargetTypeError } from '../errors/empty-target-type.error';
-import { MapFunction } from '../types/map-function.type';
-import { MapperRegistryItem } from '../types/mapper-registry-item.type';
+import { EmptySourceTypeError } from '../errors/empty-source-type.error.js';
+import { EmptyTargetTypeError } from '../errors/empty-target-type.error.js';
+import type { MapFunction } from '../types/map-function.type.js';
+import type { MapperRegistryItem } from '../types/mapper-registry-item.type.js';
 
 /**
  *

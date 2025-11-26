@@ -1,9 +1,9 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { EmptySourceTypeError } from './errors/empty-source-type.error';
-import { EmptyTargetTypeError } from './errors/empty-target-type.error';
-import { MapperAlreadyExistsError } from './errors/mapper-already-exists.error';
-import { MapperNotFoundError } from './errors/mapper-not-found.error';
-import type { MapperRegistryItem } from './types/mapper-registry-item.type';
+import { EmptySourceTypeError } from './errors/empty-source-type.error.js';
+import { EmptyTargetTypeError } from './errors/empty-target-type.error.js';
+import { MapperAlreadyExistsError } from './errors/mapper-already-exists.error.js';
+import { MapperNotFoundError } from './errors/mapper-not-found.error.js';
+import type { MapperRegistryItem } from './types/mapper-registry-item.type.js';
 
 export class MapperRegistry {
   private readonly mappers = new Map<string, MapperRegistryItem<any, any>>();
