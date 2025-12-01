@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.0](https://github.com/couckedev/mapper-registry-node/compare/v1.2.0...v1.3.0) (2025-12-01)
+
+
+### Features
+
+* export MapperRegistryItem type ([#23](https://github.com/couckedev/mapper-registry-node/issues/23)) ([cb42042](https://github.com/couckedev/mapper-registry-node/commit/cb420426b3025471b78e80aa3841da33309f929e))
+
 ## [1.2.0](https://github.com/couckedev/mapper-registry-node/compare/v1.1.3...v1.2.0) (2025-11-26)
 
 
